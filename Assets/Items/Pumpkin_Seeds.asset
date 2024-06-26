@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29889a12a73aeaa48a22123172e07944, type: 3}
   m_Name: Pumpkin_Seeds
   m_EditorClassIdentifier: 
-  itemName: Item Name
-  icon: {fileID: 0}
+  itemName: Pumpkin Seeds
+  icon: {fileID: 379098327, guid: d7ce51e2c2db1d4429d8526496234958, type: 3}
