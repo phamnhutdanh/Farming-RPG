@@ -16,7 +16,7 @@ public class Inventory_UI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ToggleInventory();
-            Setup();
+            Refresh();
         }
     }
 
@@ -25,7 +25,7 @@ public class Inventory_UI : MonoBehaviour
         inventoryPanel.SetActive(!inventoryPanel.activeSelf);
     }
 
-    public void Setup()
+    public void Refresh()
     {
         if (slots.Count == player.inventory.slots.Count)
         {
@@ -41,5 +41,17 @@ public class Inventory_UI : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Remove(int slotID)
+    {
+        Collectable itemToFrop = GameManager.instance.itemManager.GetItemByType(player.inventory.slots[slotID].type);
+        if (itemToFrop != null)
+        {
+            player.DropItem(itemToFrop);
+            player.inventory.Remove(slotID);
+            Refresh();
+        }
+       
     }
 }

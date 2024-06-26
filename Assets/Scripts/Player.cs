@@ -11,4 +11,14 @@ public class Player : MonoBehaviour
         inventory = new Inventory(21);
     }
 
+    public void DropItem(Collectable item)
+    {
+        Vector2 spawnLocation = transform.position;
+
+        Vector2 spawnOffset = Random.insideUnitCircle * 1.25f;
+
+        Collectable droppedItem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
+        droppedItem.rigibody2D.AddForce(spawnOffset * 0.2f, ForceMode2D.Impulse);
+    }
+
 }
